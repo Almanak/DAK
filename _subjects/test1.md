@@ -1,24 +1,19 @@
 ---
-id: 1
-preferredLabel: testkategori 1
+title: Pleje og hjælp
+preferredLabel: Pleje og hjælp
+altLabels:
+- Matas
+- Masagge
+relations:
+- id: 5
+  label: Sundhed, velvære og pleje
+  reltype: broader
 ---
 
-  {
-    "preferredTerm": "Pleje og hj\u00e6lp", 
-    "relations": [
-      {
-        "termId": {
-          "preferredTerm": "Sundhed, velv\u00e6re og pleje", 
-          "id": 703
-        }, 
-        "relation": "broader"
-      }, 
-      {
-        "sourceVocabulary": "DB", 
-        "relation": "=EQ", 
-        "notation": "Q87"
-      }
-    ], 
-    "id": 715, 
-    "termType": "term"
-  },
+<h1>{{page.preferredLabel}}</h1>
+<dl>
+{{ for alt in altLabels }}
+  <dt>Altlabel</dt>
+  <dd>{{alt}}</dd>
+{{ endfor }}
+</dl>
