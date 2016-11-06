@@ -4,5 +4,6 @@ description: >
   Dynamisk Arkivalie Klassifikation
  
 collections:
-  subjects
+  subjects:
+    output: true
 ---
