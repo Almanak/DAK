@@ -12,8 +12,8 @@ relations:
 
 <h1>{{page.preferredLabel}}</h1>
 <dl>
-{{ for alt in page.altLabels }}
+{% for alt in page.altLabels %}
   <dt>Altlabel</dt>
   <dd>{{alt}}</dd>
-{{ endfor }}
+{% endfor %}
 </dl>
