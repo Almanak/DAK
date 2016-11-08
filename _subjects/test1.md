@@ -2,8 +2,8 @@
 title: Pleje og hjælp
 preferredLabel: Pleje og hjælp
 altLabels:
-- 'Matas'
-- 'Masagge'
+- Matas
+- Masagge
 relations:
 - id: 5
   label: Sundhed, velvære og pleje
