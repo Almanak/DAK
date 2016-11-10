@@ -79,16 +79,18 @@ categori: subject
       {% for map in page.mappings %}
         <dt>Relation</dt>
         <dd>
-          <dt>Thesaurus</dt>
-          <dd>{{map.sourceName}}</dd>
-          <dt>Id</dt>
-          <dd>{{map.sourceIdentifier}}</dd>
-          {% if map.sourceURI %}
-            <dt>Url</dt>
-            <dd>{{map.sourceURI}}</dd>
-          {% endif %}
-          <dt>Relationstype</dt>
-          <dd>{{map.mappingType}}</dd>
+          <dl>
+            <dt>Thesaurus</dt>
+            <dd>{{map.sourceName}}</dd>
+            <dt>Id</dt>
+            <dd>{{map.sourceIdentifier}}</dd>
+            {% if map.sourceURI %}
+              <dt>Url</dt>
+              <dd>{{map.sourceURI}}</dd>
+            {% endif %}
+            <dt>Relationstype</dt>
+            <dd>{{map.mappingType}}</dd>
+          </dl>
         </dd>
       {% endfor %}
       {% endif %}
