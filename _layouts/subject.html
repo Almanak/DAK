@@ -57,14 +57,14 @@ categori: subject
       {% endif %}
 
       {% if page.altLabels %}
-      {% for label in altLabels %}
+      {% for label in page.altLabels %}
         <dt>Alternativt label</dt>
         <dd>{{label}}</dd>
       {% endfor %}
       {% endif %}
 
       {% if page.histLabels %}
-      {% for label in histLabels %}
+      {% for label in page.histLabels %}
         <dt>Historisk label</dt>
         <dd>{{label}}</dd>
       {% endfor %}
@@ -72,11 +72,11 @@ categori: subject
 
       {% if page.broader %}
       <dt>Bredere koncept</dt>
-      <dd>{{label}}</dd>
+      <dd>{{page.broader.prefLabel}}</dd>
       {% endif %}
 
       {% if page.mappings %}
-      {% for map in mappings %}
+      {% for map in page.mappings %}
         <dt>Relation</dt>
         <dd>
           <dt>Thesaurus</dt>
@@ -93,13 +93,6 @@ categori: subject
       {% endfor %}
       {% endif %}
 
-      {% if page.broader %}
-      {% for label in broader %}
-        <dt>{{label}}</dt>
-        <dd>{{label}}</dd>
-      {% endfor %}
-      {% endif %}
     </dl>
-
   </div>
 </div>
