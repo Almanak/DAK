@@ -1,0 +1,105 @@
+---
+layout: base
+markdown: 0
+categori: subject
+---
+
+<div id="content">
+  <h2 class="page-title">
+    <span class="container">{{ page.title }}</span>
+  </h2>
+
+  <div class="container clearfix">
+    <dl>
+      {% if page.prefLabel %}
+      <dt>Label</dt>
+      <dd>{{page.prefLabel}}</dd>
+      {% endif %}
+
+      {% if page.id %}
+      <dt>UUID</dt>
+      <dd>{{page.id}}</dd>
+      {% endif %}
+
+      {% if page.definition %}
+      <dt>Definition</dt>
+      <dd>{{page.definition}}</dd>
+      {% endif %}
+
+      {% if page.status %}
+      <dt>Status</dt>
+      <dd>{{page.status}}</dd>
+      {% endif %}
+
+      {% if page.created %}
+      <dt>Oprettet</dt>
+      <dd>{{page.created}}</dd>
+      {% endif %}
+
+      {% if page.updated %}
+      <dt>Senest opdateret</dt>
+      <dd>{{page.updated}}</dd>
+      {% endif %}
+
+      {% if page.scopeNote %}
+      <dt>Omfangsnote</dt>
+      <dd>{{page.scopeNote}}</dd>
+      {% endif %}
+
+      {% if page.historyNote %}
+      <dt>Historik</dt>
+      <dd>{{page.historyNote}}</dd>
+      {% endif %}
+
+      {% if page.changeNote %}
+      <dt>Changes</dt>
+      <dd>{{page.changeNote}}</dd>
+      {% endif %}
+
+      {% if page.altLabels %}
+      {% for label in altLabels %}
+        <dt>Alternativt label</dt>
+        <dd>{{label}}</dd>
+      {% endfor %}
+      {% endif %}
+
+      {% if page.histLabels %}
+      {% for label in histLabels %}
+        <dt>Historisk label</dt>
+        <dd>{{label}}</dd>
+      {% endfor %}
+      {% endif %}
+
+      {% if page.broader %}
+      <dt>Bredere koncept</dt>
+      <dd>{{label}}</dd>
+      {% endif %}
+
+      {% if page.mappings %}
+      {% for map in mappings %}
+        <dt>Relation</dt>
+        <dd>
+          <dt>Thesaurus</dt>
+          <dd>map.sourceName</dd>
+          <dt>Id</dt>
+          <dd>{{map.sourceIdentifier}}</dd>
+          {% if map.sourceURI %}
+            <dt>Url</dt>
+            <dd>{{map.sourceURI}}</dd>
+          {% endif %}
+          <dt>Relationstype</dt>
+          <dd>{{map.mappingType}}</dd>
+        </dd>
+      {% endfor %}
+      {% endif %}
+
+      {% if page.broader %}
+      {% for label in broader %}
+        <dt>{{label}}</dt>
+        <dd>{{label}}</dd>
+      {% endfor %}
+      {% endif %}
+    </dl>
+
+  </div>
+</div>
