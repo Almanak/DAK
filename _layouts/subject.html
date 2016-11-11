@@ -76,12 +76,12 @@ categori: subject
         <dd>
           <dl>
             <dt>Thesaurus</dt>
-            <dd>{{map.sourceName}}</dd>
+            <dd>{{map.thesaurus}}</dd>
             <dt>Id</dt>
             <dd>{{map.conceptIdentifier}}</dd>
             {% if map.conceptURL %}
               <dt>Url</dt>
-              <dd>{{map.sourceURI}}</dd>
+            <dd><a href="{{map.conceptURL}}">{{map.conceptURL}}</a></dd>
             {% endif %}
             <dt>Relationstype</dt>
             <dd>{{map.match}}</dd>
