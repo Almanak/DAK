@@ -6,17 +6,12 @@ categori: subject
 
 <div id="content">
   <h2 class="page-title">
-    <span class="container">{{ page.title }}</span>
+    <span class="container">{{ page.prefLabel }}</span>
   </h2>
 
   <div class="container clearfix">
     <dl>
-      {% if page.prefLabel %}
-      <dt>Label</dt>
-      <dd>{{page.prefLabel}}</dd>
-      {% endif %}
-
-      {% if page.id %}
+      {% if page.uuid %}
       <dt>UUID</dt>
       <dd>{{page.id}}</dd>
       {% endif %}
@@ -83,13 +78,13 @@ categori: subject
             <dt>Thesaurus</dt>
             <dd>{{map.sourceName}}</dd>
             <dt>Id</dt>
-            <dd>{{map.sourceIdentifier}}</dd>
-            {% if map.sourceURI %}
+            <dd>{{map.conceptIdentifier}}</dd>
+            {% if map.conceptURL %}
               <dt>Url</dt>
               <dd>{{map.sourceURI}}</dd>
             {% endif %}
             <dt>Relationstype</dt>
-            <dd>{{map.mappingType}}</dd>
+            <dd>{{map.match}}</dd>
           </dl>
         </dd>
       {% endfor %}
