@@ -1,15 +1,11 @@
 jQuery(function() {
   // Initialize lunr with the fields to be searched, plus the boost.
   window.idx = lunr(function () {
-    this.field('id');
-    this.field('title');
-    this.field('content', { boost: 10 });
-    this.field('author');
-    this.field('categories');
+    this.field('prefLabel');
   });
 
   // Get the generated search_data.json file so lunr.js can search it locally.
-  window.data = $.getJSON('/search_data.json');
+  window.data = $.getJSON('/subjects.json');
 
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
@@ -43,7 +39,7 @@ jQuery(function() {
           var item = loaded_data[result.ref];
 
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+          var appendString = '<li><a href="' + item.url + '">' + item.prefLabel + '</a></li>';
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);

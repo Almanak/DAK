@@ -2,7 +2,7 @@
 title: DAK
 description: >
   Dynamisk Arkivalie Klassifikation
-base_url: 'dak'
+baseurl: dak
 collections:
   subjects:
     output: true

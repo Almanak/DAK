@@ -20,12 +20,12 @@ markdown: 0
       </nav>
     {% endif %}
 
-    <article class="main">
+    <section class="main">
       {% if page.social_text %}
         {% include social.html %}
       {% endif %}
 
-      <section class="content-chunk">
+      <div class="content">
         {% if page.markdown == 1 %}
           {{ content | markdownify }}
         {% else %}
@@ -37,7 +37,7 @@ markdown: 0
             Found a typo? An unclear example? Help us improve our documentation by forking and sending your fixes and suggestions. <a href="https://github.com/yeoman/yeoman.github.io/blob/source/app{{ page.url | replace:'.html','.md' }}">Improve this Page!</a>
           </div>
         {% endif %}
-      </section>
-    </article>
+      </div>
+    </section>
   </div>
 </div>

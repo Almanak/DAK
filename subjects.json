@@ -1,0 +1,11 @@
+---
+layout: null
+---
+{
+  {% for subject in site.subjects %}
+    "{{ subject.permalink | slugify }}": {
+      "prefLabel"  : "{{subject.prefLabel | strip_html | strip_newlines | remove:  "   " | escape | remove: "\"}}",
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+}
