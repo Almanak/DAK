@@ -7,13 +7,12 @@ jQuery(function() {
     this.field('url');
     this.field('prefLabel');
   });
-  console.log('created idx');
   // Get the generated json-file so lunr.js can search it locally.
   subjects = $.getJSON('https://almanak.github.io/dak/subjects.json');
 
   // Wait for the data to load and add it to lunr
   subjects.then(function(loaded_data){
-    console.log("loaded json");
+    console.log("loaded subjects");
     $.each(loaded_data, function(index, value){
       idx.add(
         $.extend({ "id": index }, value)
@@ -21,7 +20,7 @@ jQuery(function() {
     });
     console.log("created index");
   });
-  console.log('outside index-creation - what happened?');
+
   $('#search_box').on('keyup', function () {
     var query = $(this).val();
     var results = idx.search(query); // Get lunr to perform a search
@@ -42,7 +41,6 @@ jQuery(function() {
 
     // Wait for data to load
     subjects.then(function(loaded_data) {
-      console.log('window.data.then is fulfilled inside display-results');
       // Are there any results?
       if (results.length) {
         $search_results.empty(); // Clear any old results
