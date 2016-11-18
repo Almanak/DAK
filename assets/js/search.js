@@ -10,7 +10,9 @@ jQuery(function() {
   console.log('created idx');
   // Get the generated json-file so lunr.js can search it locally.
   window.data = $.getJSON('/dak/subjects.json');
-  console.log('requested json');
+  if (window.data.length) {
+      console.log('requested json');
+  }
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
     console.log("loaded json");
