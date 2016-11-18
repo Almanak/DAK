@@ -7,10 +7,10 @@ jQuery(function() {
     this.field('url');
     this.field('prefLabel');
   });
-
+  console.log('created idx');
   // Get the generated json-file so lunr.js can search it locally.
   window.data = $.getJSON('/dak/subjects.json');
-
+  console.log('requested json'):
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
     console.log("loaded json");
@@ -21,7 +21,7 @@ jQuery(function() {
     });
     console.log("created index");
   });
-
+  console.log('outside index-creation - what happened?');
   $('#search_box').on('keyup', function () {
     var query = $(this).val();
     var results = window.idx.search(query); // Get lunr to perform a search
