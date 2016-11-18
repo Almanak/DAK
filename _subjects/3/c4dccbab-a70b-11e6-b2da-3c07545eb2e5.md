@@ -6,9 +6,11 @@ permalink: /subjects/c4dccbab-a70b-11e6-b2da-3c07545eb2e5
 # Specific subject values
 uuid: c4dccbab-a70b-11e6-b2da-3c07545eb2e5
 broader:
-  prefLabel: Religion
+- prefLabel: Kultur og fritid
+  uuid: c4dc6566-a70b-11e6-8783-3c07545eb2e5
+- prefLabel: Religion
   uuid: c4dcb82e-a70b-11e6-8594-3c07545eb2e5
-conceptType: concept
+conceptType: term
 created: '2016-11-10T07:56:37.253722'
 narrower:
 - prefLabel: Konfirmation
@@ -25,5 +27,5 @@ narrower:
   uuid: c4dccfb0-a70b-11e6-b844-3c07545eb2e5
 prefLabel: Religiøs handling
 status: proposed
-updated: '2016-11-11T16:01:53.869412'
+updated: '2016-11-18T12:02:33.259443'
 ---

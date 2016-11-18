@@ -6,9 +6,11 @@ permalink: /subjects/c4dafdcc-a70b-11e6-ace1-3c07545eb2e5
 # Specific subject values
 uuid: c4dafdcc-a70b-11e6-ace1-3c07545eb2e5
 broader:
-  prefLabel: Pris
+- prefLabel: økonomi og finans
+  uuid: c4da8c82-a70b-11e6-9f0c-3c07545eb2e5
+- prefLabel: Pris
   uuid: c4daf6f5-a70b-11e6-b259-3c07545eb2e5
-conceptType: concept
+conceptType: term
 created: '2016-11-10T07:56:37.245318'
 mappings:
 - conceptIdentifier: '1025'
@@ -17,5 +19,5 @@ mappings:
   thesaurus: EuroVoc
 prefLabel: Prisfastsættelse
 status: proposed
-updated: '2016-11-11T16:01:53.867333'
+updated: '2016-11-18T12:02:33.257056'
 ---

@@ -9,7 +9,7 @@ import yaml
 __author__ = 'Claus Juhl Knudsen'
 __version__ = '2016-11-18'
 
-json_file = """/Users/cjk/Dropbox/Projects/DAO/refactored_v2.json"""
+json_file = """/Users/cjk/Dropbox/Projects/DAO/refactored_v5.json"""
 
 
 def main():

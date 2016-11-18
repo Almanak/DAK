@@ -1,0 +1,10 @@
+{
+  {% for subject in site.subjects %}
+    "{{ subject.uuid | slugify }}": {
+      "prefLabel"  : "{{subject.prefLabel | strip_html | strip_newlines | remove:  "   " | escape | remove: "\"}}",
+      "url" : "{{site.github.url}}{{subject.url | xml_escape }}",
+      "broader" : {{subject.broader | jsonify}}
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+}
