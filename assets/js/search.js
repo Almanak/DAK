@@ -9,7 +9,7 @@ jQuery(function() {
   });
 
   // Get the generated json-file so lunr.js can search it locally.
-  window.data = $.getJSON('/subjects.json');
+  window.data = $.getJSON('/dak/subjects.json');
 
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
