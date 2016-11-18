@@ -5,6 +5,7 @@ layout: null
   {% for subject in site.subjects %}
     "{{ subject.uuid | slugify }}": {
       "prefLabel"  : "{{subject.prefLabel | strip_html | strip_newlines | remove:  "   " | escape | remove: "\"}}",
+      "url" : "{{subject.url | xml_escape }}"
     }
     {% unless forloop.last %},{% endunless %}
   {% endfor %}
