@@ -1,3 +1,6 @@
+---
+---
+
 // http://rayhightower.com/blog/2016/01/04/how-to-make-lunrjs-jekyll-work-together/
 // http://katydecorah.com/code/lunr-and-jekyll/
 
@@ -9,15 +12,19 @@ jQuery(function() {
   });
 
   // Get the generated json-file so lunr.js can search it locally.
-  window.data = $.getJSON('/subjects.json');
-
+  window.data = $.getJSON({{ site.github.url }} + '/subjects.json');
+  if (window.data) {
+    console.log("requested json");
+  }
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
+    console.log("loaded json");
     $.each(loaded_data, function(index, value){
       window.idx.add(
         $.extend({ "id": index }, value)
       );
     });
+    console.log("created index");
   });
 
   $('#search_box').on('keyup', function () {
