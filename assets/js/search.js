@@ -12,13 +12,13 @@ jQuery(function() {
 
   // Wait for the data to load and add it to lunr
   subjects.then(function(loaded_data){
-    console.log("loaded subjects");
+    console.log("loaded subjects: " + $.now());
     $.each(loaded_data, function(index, value){
       idx.add(
         $.extend({ "id": index }, value)
       );
     });
-    console.log("created index");
+    console.log("created index: " + $.now());
   });
 
   $('#search_box').on('keyup', function () {
