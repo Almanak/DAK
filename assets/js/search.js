@@ -42,7 +42,7 @@ jQuery(function() {
 
     // Wait for data to load
     window.data.then(function(loaded_data) {
-
+      console.log('window.data.then is fulfilled inside display-results');
       // Are there any results?
       if (results.length) {
         $search_results.empty(); // Clear any old results
