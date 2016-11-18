@@ -3,21 +3,19 @@
 
 jQuery(function() {
   // Initialize lunr with the fields to be searched, plus the boost.
-  window.idx = lunr(function () {
+  idx = lunr(function () {
     this.field('url');
     this.field('prefLabel');
   });
   console.log('created idx');
   // Get the generated json-file so lunr.js can search it locally.
-  window.data = $.getJSON('https://almanak.github.io/dak/subjects.json');
-  if (window.data.length) {
-      console.log('requested json');
-  }
+  subjects = $.getJSON('https://almanak.github.io/dak/subjects.json');
+
   // Wait for the data to load and add it to lunr
-  window.data.then(function(loaded_data){
+  subjects.then(function(loaded_data){
     console.log("loaded json");
     $.each(loaded_data, function(index, value){
-      window.idx.add(
+      idx.add(
         $.extend({ "id": index }, value)
       );
     });
@@ -26,16 +24,16 @@ jQuery(function() {
   console.log('outside index-creation - what happened?');
   $('#search_box').on('keyup', function () {
     var query = $(this).val();
-    var results = window.idx.search(query); // Get lunr to perform a search
+    var results = idx.search(query); // Get lunr to perform a search
     display_search_results(results); // Hand the results off to be displayed
   });
 
 
   // Event when the form is submitted
-  $("#site_search").submit(function(event){
+  $("#site_search_inactive").submit(function(event){
       event.preventDefault();
       var query = $("#search_box").val(); // Get the value for the text field
-      var results = window.idx.search(query); // Get lunr to perform a search
+      var results = idx.search(query); // Get lunr to perform a search
       display_search_results(results); // Hand the results off to be displayed
   });
 
@@ -43,7 +41,7 @@ jQuery(function() {
     var $search_results = $("#search_results");
 
     // Wait for data to load
-    window.data.then(function(loaded_data) {
+    subjects.then(function(loaded_data) {
       console.log('window.data.then is fulfilled inside display-results');
       // Are there any results?
       if (results.length) {
