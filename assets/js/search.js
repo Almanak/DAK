@@ -6,6 +6,10 @@ jQuery(function() {
   idx = lunr(function () {
     this.field('url');
     this.field('prefLabel');
+    
+    this.pipeline.remove(lunr.trimmer)
+    this.pipeline.remove(lunr.stopWordStemmer)
+    this.pipeline.remove(lunr.stemmer)
   });
   // Get the generated json-file so lunr.js can search it locally.
   subjects = $.getJSON('https://almanak.github.io/dak/subjects.json');
