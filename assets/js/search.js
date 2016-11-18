@@ -41,9 +41,9 @@ jQuery(function() {
 
     // Wait for data to load
     subjects.then(function(loaded_data) {
+      $search_results.empty(); // Clear any old results
       // Are there any results?
       if (results.length) {
-        $search_results.empty(); // Clear any old results
 
         // Iterate over the results
         results.forEach(function(result) {
