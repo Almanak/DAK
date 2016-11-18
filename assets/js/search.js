@@ -9,7 +9,7 @@ jQuery(function() {
   });
   console.log('created idx');
   // Get the generated json-file so lunr.js can search it locally.
-  window.data = $.getJSON('/dak/subjects.json');
+  window.data = $.getJSON('https://almanak.github.io/dak/subjects.json');
   if (window.data.length) {
       console.log('requested json');
   }
