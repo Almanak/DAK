@@ -1,10 +1,11 @@
 jQuery(function() {
   // Initialize lunr with the fields to be searched, plus the boost.
   window.idx = lunr(function () {
+    this.field('url');
     this.field('prefLabel');
   });
 
-  // Get the generated search_data.json file so lunr.js can search it locally.
+  // Get the generated json-file so lunr.js can search it locally.
   window.data = $.getJSON('/dak/subjects.json');
 
   // Wait for the data to load and add it to lunr
