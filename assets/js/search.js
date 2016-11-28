@@ -14,11 +14,11 @@ jQuery(function() {
 
   // url-stuff
   host = window.location.host;
-  github_url = "https://almanak.github.io/dak";
+  github_url = 'https://almanak.github.io/dak';
 
   // Get the generated json-file so lunr.js can search it locally.
   var subjects;
-  if (host == "almanak.github.io") {
+  if (host == 'almanak.github.io') {
     subjects = $.getJSON(github_url + '/subjects.json');
   } else {
     subjects = $.getJSON('/subjects.json');
@@ -26,13 +26,13 @@ jQuery(function() {
 
   // Wait for the data to load and add it to lunr
   subjects.then(function(loaded_data){
-    console.log("loaded subjects: " + $.now());
+    console.log('loaded subjects: ' + $.now());
     $.each(loaded_data, function(index, value){
       idx.add(
-        $.extend({ "id": index }, value)
+        $.extend({ 'id': index }, value)
       );
     });
-    console.log("created index: " + $.now());
+    console.log('created index: ' + $.now());
   });
 
   $('#search_box').on('keyup', function () {
@@ -43,7 +43,7 @@ jQuery(function() {
 
 
   // Event when the form is submitted
-  $("#site_search_inactive").submit(function(event){
+  $('#site_search_inactive').submit(function(event){
       event.preventDefault();
       var query = $("#search_box").val(); // Get the value for the text field
       var results = idx.search(query); // Get lunr to perform a search
@@ -51,7 +51,7 @@ jQuery(function() {
   });
 
   function display_search_results(results) {
-    var $search_results = $("#search_results");
+    var $search_results = $('#search_results');
 
     // Wait for data to load
     subjects.then(function(loaded_data) {
@@ -63,13 +63,13 @@ jQuery(function() {
         results.forEach(function(result) {
           var item = loaded_data[result.ref];
 
-          if (host == "almanak.github.io") {
+          if (host == 'almanak.github.io') {
             url = github_url + item.url;
           } else {
             url = item.url;
           }
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + url.trim() + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
+          var appendString = '<li><a href="' + url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);
