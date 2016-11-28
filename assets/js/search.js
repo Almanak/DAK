@@ -54,7 +54,8 @@ jQuery(function() {
           var item = loaded_data[result.ref];
 
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + item.url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
+          var url = window.location.path + item.url
+          var appendString = '<li><a href="' + url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);
