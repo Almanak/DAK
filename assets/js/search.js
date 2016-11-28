@@ -58,18 +58,19 @@ jQuery(function() {
       $search_results.empty(); // Clear any old results
       // Are there any results?
       if (results.length) {
-        var url;
+        var str;
         // Iterate over the results
         results.forEach(function(result) {
           var item = loaded_data[result.ref];
 
           if (host == 'almanak.github.io') {
-            url = github_url + item.url;
+            str = github_url + item.url;
           } else {
-            url = item.url;
+            str = item.url;
           }
+          var url = str.replace(/\s+/g, '');
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
+          var appendString = '<li><a href="' + url.replace(/\s+/g, '') + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);
