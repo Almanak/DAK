@@ -3,16 +3,26 @@
 
 jQuery(function() {
   // Initialize lunr with the fields to be searched, plus the boost.
-  idx = lunr(function () {
+  var idx = lunr(function () {
     this.field('url');
     this.field('prefLabel');
     
-    this.pipeline.remove(lunr.trimmer)
-    this.pipeline.remove(lunr.stopWordStemmer)
-    this.pipeline.remove(lunr.stemmer)
+    this.pipeline.remove(lunr.trimmer);
+    this.pipeline.remove(lunr.stopWordStemmer);
+    this.pipeline.remove(lunr.stemmer);
   });
+
+  // url-stuff
+  host = window.location.host;
+  github_url = "https://almanak.github.io/dak";
+
   // Get the generated json-file so lunr.js can search it locally.
-  subjects = $.getJSON('https://almanak.github.io/dak/subjects.json');
+  var subjects;
+  if (host == "almanak.github.io") {
+    subjects = $.getJSON(github_url + '/subjects.json');
+  } else {
+    subjects = $.getJSON('/subjects.json');
+  }
 
   // Wait for the data to load and add it to lunr
   subjects.then(function(loaded_data){
@@ -53,8 +63,14 @@ jQuery(function() {
         results.forEach(function(result) {
           var item = loaded_data[result.ref];
 
+          var url;
+          if (host == "almanak.github.io") {
+            url = github_url + item.url;
+          } else {
+            url = item.url;
+          }
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + item.url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
+          var appendString = '<li><a href="' + url + '">' + item.prefLabel + '</a></li><li>' + 'content...' + '</li>';
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);
